@@ -1,62 +1,58 @@
-# MKPSP
+# Mario Kart PSP
 
-Réécriture expérimentale du moteur de Mario Kart DS pour PSP. La ROM originale
-n'est jamais incluse au projet : les outils lisent la copie fournie localement.
+**Mario Kart PSP** est un fangame Mario Kart développé nativement pour la PlayStation Portable.
+
+L'objectif n'est plus de porter ou de réécrire Mario Kart DS, mais de créer un **véritable opus Mario Kart original pensé pour la PSP**, avec son propre contenu, sa propre sélection de circuits et son propre gameplay.
+
+Le projet utilise un moteur maison écrit en C avec le PSPSDK.
+
+## Objectif
+
+Créer un épisode Mario Kart complet adapté aux capacités de la PSP :
+
+- gameplay arcade inspiré de la série Mario Kart ;
+- drift et mini-turbos ;
+- objets ;
+- courses à plusieurs tours ;
+- contre-la-montre ;
+- Grand Prix ;
+- personnages et véhicules Mario ;
+- circuits originaux et circuits rétro ;
+- musique et effets sonores ;
+- interface pensée pour la PSP.
+
+Le projet n'est pas une émulation de Mario Kart DS et ne cherche pas à reproduire exactement son moteur.
 
 ## État actuel
 
-- lecture et extraction du NitroFS de la ROM DS ;
-- prototype PSP natif : contrôles analogiques, accélération, freinage, direction,
-  caméra suiveuse et piste 3D de test ;
-- base prévue pour convertir ensuite les formats de circuits de MKDS.
+Le moteur possède déjà une base jouable comprenant notamment :
 
-Ce n'est pas une recompilation directe : le programme DS est en ARM et le
-programme PSP doit être réécrit pour le processeur MIPS de la console.
+- rendu 3D natif sur PSP ;
+- contrôles analogiques ;
+- accélération, freinage et direction ;
+- caméra de course ;
+- collisions avec les circuits ;
+- drift et mini-turbos ;
+- système de tours ;
+- contre-la-montre ;
+- musique et effets sonores ;
+- système de boost ;
+- chargement de circuits et d'objets ;
+- outils de conversion de modèles et de données vers des formats adaptés à la PSP.
 
-## Extraire les données de la ROM
+Plusieurs circuits servent actuellement au développement, notamment :
 
-```sh
-python3 tools/nds_extract.py "Mario Kart DS (Europe) (En,Fr,De,Es,It).nds" assets/extracted
-```
+- Mario Circuit ;
+- Waluigi Pinball ;
+- Luigi's Mansion.
 
-Les circuits sont encore contenus dans des archives CARC. Exemple pour
-extraire le circuit Mario et ses textures :
+Ils pourront évoluer pour correspondre à la direction du nouvel opus.
 
-```sh
-python3 tools/carc_extract.py assets/extracted/data/Course/mario_course.carc assets/courses/mario
-python3 tools/carc_extract.py assets/extracted/data/Course/mario_courseTex.carc assets/courses/mario_tex
-```
+## Compilation
 
-## Compiler pour PSP
+Le projet nécessite le **PSPSDK**.
 
-Installer PSPSDK, puis lancer :
+Depuis un environnement configuré avec PSPDEV :
 
 ```sh
 make
-```
-
-Copier ensuite `EBOOT.PBP` dans `PSP/GAME/MKPSP/` sur la Memory Stick.
-
-## Donnees de jeu fournies par l'utilisateur
-
-Le programme et les donnees Nintendo restent separes. Le depot ne contient
-jamais les modeles, textures, circuits ou sons extraits de la ROM. Chaque
-utilisateur doit creer son propre dossier `data/` a partir de sa copie de MKDS.
-
-Disposition sur la Memory Stick :
-
-```text
-PSP/GAME/MarioKartPSP/
-|-- EBOOT.PBP
-`-- data/
-    |-- characters/
-    |-- karts/
-    `-- courses/
-```
-
-Le dossier `data/` est ignore par Git. Les futurs chargeurs PSP liront les
-fichiers relativement au dossier de l'EBOOT afin que le nom du lecteur
-(`ms0:`, `ef0:` ou autre) n'ait pas besoin d'etre code en dur.
-
-Commandes du prototype : stick ou croix pour tourner, X pour accélérer, carré
-pour freiner/reculer et Start pour quitter.
