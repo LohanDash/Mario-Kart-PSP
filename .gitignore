@@ -1,0 +1,14 @@
+*.nds
+build/
+__pycache__/
+*.pyc
+tools/_vendor/
+tools/_anim_vendor/
+tools/apicula/
+tools/apicula-latest-windows.zip
+assets/animation_work/
+assets/extracted/
+assets/courses/
+data/
+EBOOT.PBP
+PARAM.SFO

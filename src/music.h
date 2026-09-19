@@ -1,0 +1,25 @@
+#ifndef MKPSP_MUSIC_H
+#define MKPSP_MUSIC_H
+
+enum MusicTrack {
+    MUSIC_NONE = 0,
+    MUSIC_MAIN_MENU,
+    MUSIC_SINGLE_MENU,
+    MUSIC_TIME_TRIAL_START,
+    MUSIC_MARIO_CIRCUIT,
+    MUSIC_FINAL_LAP_JINGLE,
+    MUSIC_MARIO_CIRCUIT_FINAL,
+    MUSIC_WALUIGI_PINBALL,
+    MUSIC_WALUIGI_FINAL_LAP_JINGLE,
+    MUSIC_WALUIGI_PINBALL_FINAL,
+    MUSIC_LUIGIS_MANSION,
+    MUSIC_LUIGIS_FINAL_LAP_JINGLE,
+    MUSIC_LUIGIS_MANSION_FINAL,
+    MUSIC_TIME_TRIAL_RESULTS
+};
+
+void music_init(void);
+void music_request(enum MusicTrack track);
+void music_shutdown(void);
+
+#endif
