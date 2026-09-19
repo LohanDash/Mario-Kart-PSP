@@ -1,58 +1,75 @@
 # Mario Kart PSP
 
-**Mario Kart PSP** est un fangame Mario Kart développé nativement pour la PlayStation Portable.
+**Mario Kart PSP** is a fan-made Mario Kart installment developed natively for the PlayStation Portable.
 
-L'objectif n'est plus de porter ou de réécrire Mario Kart DS, mais de créer un **véritable opus Mario Kart original pensé pour la PSP**, avec son propre contenu, sa propre sélection de circuits et son propre gameplay.
+The goal of the project is to create a complete Mario Kart experience designed specifically around the PSP hardware, with its own selection of characters, vehicles, courses, gameplay systems, presentation, and technical choices.
 
-Le projet utilise un moteur maison écrit en C avec le PSPSDK.
+Rather than reproducing a single existing Mario Kart game, Mario Kart PSP takes inspiration from multiple entries in the series while being developed as its own standalone installment.
 
-## Objectif
+The game runs on a custom engine written in C using PSPSDK and targets real PSP hardware.
 
-Créer un épisode Mario Kart complet adapté aux capacités de la PSP :
+## Project goals
 
-- gameplay arcade inspiré de la série Mario Kart ;
-- drift et mini-turbos ;
-- objets ;
-- courses à plusieurs tours ;
-- contre-la-montre ;
-- Grand Prix ;
-- personnages et véhicules Mario ;
-- circuits originaux et circuits rétro ;
-- musique et effets sonores ;
-- interface pensée pour la PSP.
+Mario Kart PSP aims to deliver:
 
-Le projet n'est pas une émulation de Mario Kart DS et ne cherche pas à reproduire exactement son moteur.
+- fast arcade-style racing;
+- drifting and mini-turbos;
+- items and boost mechanics;
+- Grand Prix and Time Trial gameplay;
+- original course layouts;
+- retro courses adapted for PSP;
+- Mario characters and vehicles;
+- custom menus and presentation;
+- music and sound effects;
+- a lightweight engine optimized for the PSP.
 
-## État actuel
+## Current development state
 
-Le moteur possède déjà une base jouable comprenant notamment :
+The project already includes a playable racing foundation with:
 
-- rendu 3D natif sur PSP ;
-- contrôles analogiques ;
-- accélération, freinage et direction ;
-- caméra de course ;
-- collisions avec les circuits ;
-- drift et mini-turbos ;
-- système de tours ;
-- contre-la-montre ;
-- musique et effets sonores ;
-- système de boost ;
-- chargement de circuits et d'objets ;
-- outils de conversion de modèles et de données vers des formats adaptés à la PSP.
+- native PSP 3D rendering;
+- analog steering;
+- acceleration and braking;
+- race camera;
+- course collision;
+- lap tracking;
+- drifting;
+- mini-turbos;
+- boost mechanics;
+- music playback;
+- sound effects;
+- course loading;
+- object loading;
+- PSP-specific asset conversion tools.
 
-Plusieurs circuits servent actuellement au développement, notamment :
+Several courses are currently being used during development, including:
 
-- Mario Circuit ;
-- Waluigi Pinball ;
+- Mario Circuit;
+- Waluigi Pinball;
 - Luigi's Mansion.
 
-Ils pourront évoluer pour correspondre à la direction du nouvel opus.
+These courses are part of the current development environment and may evolve as the project takes shape.
 
-## Compilation
+## Technical direction
 
-Le projet nécessite le **PSPSDK**.
+Mario Kart PSP is built as a native PSP game rather than an emulator or compatibility layer.
 
-Depuis un environnement configuré avec PSPDEV :
+The engine is written primarily in C and uses PSPSDK for:
+
+- rendering;
+- controller input;
+- audio;
+- file access;
+- memory management;
+- PSP executable generation.
+
+Development tools are also used to convert models, textures, collision data, music, and other assets into formats suitable for PSP hardware.
+
+## Building
+
+The project requires **PSPSDK**.
+
+From an environment configured with PSPDEV:
 
 ```sh
 make
